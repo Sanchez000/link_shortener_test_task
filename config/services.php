@@ -13,6 +13,12 @@ return [
     | a conventional file to locate the various service credentials.
     |
     */
+    'code' => [
+        /*
+            A variable that sets the length of the short link code for the whole application
+        */
+        'length' => env('SHORT_CODE_LENGTH', 8),
+    ],
 
     'mailgun' => [
         'domain' => env('MAILGUN_DOMAIN'),

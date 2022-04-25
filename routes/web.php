@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\LinkController;
+use App\Http\Controllers\ProxyLinkController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [LinkController::class , 'create']);
+Route::resource('links', LinkController::class)->only(['create', 'store', 'show']);
+Route::get('/{shortCode}' , [ProxyLinkController::class , 'show'])
+    ->where('shortCode', '(.*){'.config('services.code.length').'}');

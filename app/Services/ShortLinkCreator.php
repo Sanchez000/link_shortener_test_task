@@ -10,7 +10,7 @@ use Hidehalo\Nanoid\GeneratorInterface;
 class ShortLinkCreator
 {
     protected CreateLinkRequest $createLinkRequest;
-    private $codeLength;
+    private int $codeLength;
 
     public function __construct()
     {
@@ -31,7 +31,7 @@ class ShortLinkCreator
 
     private function generateCode() : string
     {
-        return (new Client())->generateId($size = $this->codeLength, 
-                                          $mode = Client::MODE_DYNAMIC);
+        return (new Client())->generateId($this->codeLength, 
+                                          Client::MODE_DYNAMIC);
     }
 }

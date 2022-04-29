@@ -22,7 +22,6 @@ return new class extends Migration
             $table->timestamp('expired_at')->nullable();
             $table->timestamps();
 
-            $table->index('original_url');
             $table->index('short_code');
         });
     }

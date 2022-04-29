@@ -23,7 +23,7 @@ class LinkFactory extends Factory
                 'clicks' => 0,
                 'expired_at' => Carbon::now()->add(1,'hours')->toDateTimeString(),
                 'original_url' => 'https://blabla.com',
-                'short_code' => (new Client())->generateId(config('services.code.length'),
+                'short_code' => (new Client())->generateId((int) config('services.code.length'),
                                                            Client::MODE_DYNAMIC),
             ];
     }
